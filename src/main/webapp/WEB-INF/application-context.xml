@@ -4,7 +4,7 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:component-scan base-package="dev.controller,dev.repository,dev.service,dev.validator"/>
+    <context:component-scan base-package="dev.controller,dev.repository,dev.service"/>
     <mvc:annotation-driven/>
 
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -18,6 +18,25 @@
         <property name="user" value="root"/>
         <property name="password" value="root"/>
     </bean>
+<!--    <bean id="dataSource" class="com.microsoft.sqlserver.jdbc.SQLServerDriver">
+        <property name="databaseName" value="apwj"/>
+        <property name="url" value="jdbc:sqlserver://LAPTOP-JM49R2Q7\SQL_IFTAKHAR;databaseName=apwj"/>
+        <property name="user" value=""/>
+        <property name="password" value=""/>
+    </bean>-->
+  <!--  <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+        <property name="url" value="[jdbc:sqlserver://LAPTOP-JM49R2Q7\SQL_IFTAKHAR]:[1433];databaseName=[apwj]" />
+        <property name="username" value="" />
+        <property name="password" value="" />
+    </bean>-->
+   <!-- <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+        <property name="url" value="jdbc:sqlserver://LAPTOP-JM49R2Q7\\SQL_IFTAKHAR;databaseName=apwj;integratedSecurity=true;" />
+    </bean>-->
+
+
+
 
     <!--<bean id="fc" class="dev.controller.UserController"/>-->
 </beans>

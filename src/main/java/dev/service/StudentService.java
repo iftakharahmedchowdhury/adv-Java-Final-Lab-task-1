@@ -4,7 +4,9 @@ import dev.domain.Student;
 import dev.repository.StudentRepository;
 import org.springframework.stereotype.Service;
 
+import javax.validation.Valid;
 import java.sql.SQLException;
+import java.util.List;
 
 @Service
 public class StudentService {
@@ -15,15 +17,28 @@ public class StudentService {
         this.studentRepository = studentRepository;
     }
 
-    public void create(Student student) throws SQLException {
-        // Any logic before saving the student entity can be added here
+
+
+    public void create(@Valid Student student) throws SQLException {
+        student.setFullname(student.getFullname().toUpperCase());
         studentRepository.create(student);
     }
 
-    public Object getAllStudents() {
+    public List<Student> showAll() throws SQLException {
+        return studentRepository.showAll();
+    }
+
+    public void deleteUserById(int id) throws SQLException {
+        studentRepository.deleteById(id);
+    }
+
+    public Student showStudentDetails(int id) throws SQLException {
+        return studentRepository.showStudentDetails(id);
     }
 
 
-    public Student getStudentById(int id) {
+    public void EditUser(Student student) throws SQLException {
+        studentRepository.EditUser(student);
+
     }
 }
